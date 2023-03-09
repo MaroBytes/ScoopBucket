@@ -20,7 +20,7 @@
     "hash": "3d1b294dca4822a6fe2f510b200ebf0080790f4b9064f3a8e6d0ec9dc98418e8",
     "homepage": "https://en.eagle.cool/",
     "installer": {
-        "script": "sudo Start-Process -Filepath \"$dir\\installer.exe\" -WorkingDirectory \"$dir\" -ArgumentList \"/S /D=$dir\" -Wait"
+        "script": "gsudo Start-Process -Filepath \"$dir\\installer.exe\" -WorkingDirectory \"$dir\" -ArgumentList \"/S /D=$dir\" -Wait"
     },
     "license": {
         "identifier": "Shareware",
@@ -28,7 +28,7 @@
     },
     "persist": "User Data",
     "post_install": [
-        "sudo Remove-Item -path \"$dir\\installer.exe\" -Force",
+        "gsudo Remove-Item -path \"$dir\\installer.exe\" -Force",
         "if (!(Test-Path \"$dir\\User Data\\*\") -and (Test-Path \"$env:AppData\\Eagle\")) {",
         "    info '[Portable Mode]: Copying user data...'",
         "    Copy-Item \"$env:AppData\\Eagle\\*\" \"$dir\\User Data\" -Recurse",
